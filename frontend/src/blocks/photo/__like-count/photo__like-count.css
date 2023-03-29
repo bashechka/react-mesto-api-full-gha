@@ -1,0 +1,13 @@
+.photo__like-count {
+    border: none;
+    background: none;
+    width: 10px;
+    height: 13px;
+    font-family: inherit;
+    font-size: 13px;
+    color: black;
+    text-align: center;
+    font-weight: 400;
+    margin: 0;
+    padding: 3px 6px 0 6px;
+}

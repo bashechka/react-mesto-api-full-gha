@@ -1,0 +1,6 @@
+.photo__like-wrapper {
+    width: 22px;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+}

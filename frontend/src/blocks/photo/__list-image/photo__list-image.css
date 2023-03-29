@@ -1,0 +1,7 @@
+.photo__list-image {
+  width: 100%;
+  height: 282px;
+  background-size: cover;
+  object-fit: cover;
+  cursor: pointer;
+}

@@ -1,0 +1,15 @@
+.header__link {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header__link:hover {
+  opacity: 0.6;
+}

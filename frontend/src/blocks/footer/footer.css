@@ -1,0 +1,27 @@
+.footer {
+  width: 100%;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+  margin: 0;
+  padding: 0 0 60px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 0 0 60px 30px;
+    box-sizing: border-box;
+ }
+}
+
+@media screen and (max-width: 425px) {
+  .footer {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 0px 0 60px 19px;
+    box-sizing: border-box;
+ }
+}

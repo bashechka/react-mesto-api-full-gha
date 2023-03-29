@@ -1,0 +1,11 @@
+.photo__wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 23px 15px 26px 21px;
+  width: 246px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0;
+}
+
+

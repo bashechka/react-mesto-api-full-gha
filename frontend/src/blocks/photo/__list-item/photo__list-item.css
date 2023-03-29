@@ -1,0 +1,10 @@
+.photo__list-item {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  /* height: 361px; */
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
