@@ -5,7 +5,7 @@ const ForbiddenError = require('../errors/forbidden-err');
 
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
-  Card.create({ name, link, owner: req.user._id })
+  Card.create({ name, link, owner: req.user })
     .then((card) => res.status(201).send({ data: card }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -18,6 +18,7 @@ module.exports.createCard = (req, res, next) => {
 
 module.exports.getCard = (req, res, next) => {
   Card.find({})
+    .populate('owner')
     .then((cards) => res.send({ data: cards }))
     .catch((err) => {
       next(err);
@@ -29,7 +30,7 @@ module.exports.deleteCard = (req, res, next) => {
     .then((card) => {
       if (!card) {
         throw new NotFoundError('Карточка с указанным _id не найдена');
-      } else if (card.owner.toString() !== req.user._id) {
+      } else if (card.owner._id.toString() !== req.user._id) {
         throw new ForbiddenError('Доступ запрещен');
       } else {
         return card.remove();
@@ -51,6 +52,7 @@ module.exports.likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } }, // добавить _id в массив, если его там нет
     { new: true },
   )
+    .populate('owner')
     .then((card) => {
       if (!card) {
         next(new NotFoundError('Карточка с указанным _id не найдена'));
@@ -73,6 +75,7 @@ module.exports.dislikeCard = (req, res, next) => {
     { $pull: { likes: req.user._id } }, // убрать _id из массива
     { new: true },
   )
+    .populate('owner')
     .then((card) => {
       if (!card) {
         next(new NotFoundError('Карточка с указанным _id не найдена'));
